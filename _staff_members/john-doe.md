@@ -5,4 +5,4 @@ credentials: LLB
 phone_extension: "11"
 ---
 
-With an interest in employment law, John works tirelessly to improve workplaces.
+With an interest in Electricity, John works tirelessly to improve workplace electricity.

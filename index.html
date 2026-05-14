@@ -1,36 +1,203 @@
 ---
-title:
-call_to_action: Contact
-background_image_path:
-large_header: true
-testimonials:
-  - message: Very professional service. We called when our home demo project took a surprising turn and we needed electrical work. It was handled quickly and for the amount of time spent on the job it was very affordable and well done. Definitely recommend!
-    image: "https://placebear.com/60/60"
-    name: Nessa Christine
-  - message: Not only did Max do a fantastic job on our addition, he was also incredibly patient and kind to my children as they followed him around. Now, my 8-year-old is thinking about becoming an electrician.
-    image: "https://placebear.com/60/60"
-    name: Julie Mata
-_options:
-  image:
-    width: 60
-    height: 60
+layout: null
+permalink: /
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loreto Solutions | Coming Soon</title>
+  <meta name="description" content="Loreto Solutions is preparing something new. Check back soon.">
+  <style>
+    @font-face {
+      font-family: "Raleway";
+      src: url("{{ '/fonts/Raleway-VariableFont_wght.ttf' | relative_url }}") format("truetype");
+      font-weight: 100 900;
+      font-style: normal;
+    }
 
-<div class="editable">
-	<p>We are Loreto Solutions. We do electricity good, in a nearly 100% non-fatal way, using only holistically grown electricity, harvested from only the finest Brazilian Electra trees.</p>
-</div>
+    :root {
+      --bg: #ffffff;
+      --bg-strong: #f5f5f5;
+      --text: #121212;
+      --muted: rgba(18, 18, 18, 0.68);
+      --green: #138b55;
+      --green-soft: rgba(19, 139, 85, 0.10);
+      --blue-soft: rgba(61, 92, 255, 0.07);
+      --red-soft: rgba(255, 75, 58, 0.07);
+      --card: rgba(255, 255, 255, 0.85);
+      --border: rgba(18, 18, 18, 0.08);
+      --shadow: 0 30px 80px rgba(18, 18, 18, 0.08);
+    }
 
-{% leaflet_map { "center" : [39.18566000,  -78.16333000],
-    "zoom" : 9,
-    "providerBasemap": "CartoDB.Positron" } %}
-    {}
-{% endleaflet_map %}
+    * {
+      box-sizing: border-box;
+    }
 
-<div class="testimonials">
-	{% for testimonial in page.testimonials %}
-		<blockquote class="testimonial">
-			<p class="testimonial-message">{{ testimonial.message }}</p>
-			<p class="testimonial-author"><img src="{% include relative-src.html src=testimonial.image %}" alt="Photo of {{ testimonial.name }}"> {{ testimonial.name }}</p>
-		</blockquote>
-	{% endfor %}
-</div>
+    html {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100%;
+      font-family: "Raleway", "Avenir Next", "Segoe UI", sans-serif;
+      color: var(--text);
+      background: #ffffff;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: auto;
+      pointer-events: none;
+      filter: blur(8px);
+      z-index: 0;
+    }
+
+    body::before {
+      width: 28rem;
+      height: 28rem;
+      top: -8rem;
+      left: -5rem;
+      background: radial-gradient(circle, var(--green-soft), transparent 66%);
+      animation: drift 14s ease-in-out infinite;
+    }
+
+    body::after {
+      width: 22rem;
+      height: 22rem;
+      bottom: -7rem;
+      right: -4rem;
+      background: radial-gradient(circle, var(--blue-soft), transparent 62%);
+      animation: drift 18s ease-in-out infinite reverse;
+    }
+
+    .site-shell {
+      position: relative;
+      isolation: isolate;
+      z-index: 1;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 2rem;
+    }
+
+    .grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(18, 18, 18, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(18, 18, 18, 0.04) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at center, black 42%, transparent 82%);
+      opacity: 0.55;
+      z-index: 0;
+    }
+
+    .panel {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 520px);
+      padding: clamp(2rem, 5vw, 3.5rem);
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      background: var(--card);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      pointer-events: none;
+    }
+
+    .panel img {
+      width: min(100%, 320px);
+      height: auto;
+      border-radius: 16px;
+    }
+
+    h1 {
+      margin: 2rem 0 0.6rem;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .phone {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--muted);
+    }
+
+    .phone a {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .phone a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes drift {
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate3d(18px, -16px, 0) scale(1.04);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .site-shell {
+        padding: 1rem;
+      }
+
+      .panel {
+        padding: 1.25rem;
+        border-radius: 24px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="site-shell">
+    <div class="grid" aria-hidden="true"></div>
+    <section class="panel">
+      <img src="{{ '/images/logo.png' | relative_url }}" alt="Loreto Solutions logo">
+      <h1>Launching soon.</h1>
+      <p class="phone">For enquiries, call <a href="tel:{{ site.data.company.phone }}">{{ site.data.company.phone }}</a></p>
+    </section>
+  </main>
+</body>
+</html>

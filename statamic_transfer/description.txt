@@ -1,0 +1,72 @@
+Statamic transfer - loreto
+
+Generated: 2026-06-21
+
+Overview:
+This repository is a Jekyll-based site. The folder `statamic_transfer` contains the site's custom assets and a short description of site content to assist migration to Statamic.
+
+Content summary:
+- Site generator: Jekyll (configuration and templates present: `_config.yml`, `_layouts`, `_includes`, `_posts`, `_data`)
+- Pages (root): 404.html, about.html, contact-success.html, contact.html, index.html, robots.txt, services.html, terms.md
+
+Blog posts (_posts):
+- 2016-08-10-business-mergers.md
+- 2016-11-11-real-estate-flipping.md
+- _posts/_defaults.md (Jekyll defaults)
+
+Staff members (_staff_members):
+- jane-doe.md
+- john-doe.md
+- _staff_members/_defaults.md
+
+Data files (_data):
+- company.yml
+- footer.yml
+
+Layouts (_layouts):
+- archive.html
+- default.html
+- page.html
+- post.html
+
+Includes (_includes):
+- post-summary-details.html
+- post-summary.html
+- relative-src.html
+- social-icon.html
+- staff-member.html
+
+Assets exported (copied into this folder):
+- css/main.scss
+- fonts/Raleway-VariableFont_wght.ttf
+- images/_screenshot.png
+- images/favicon.png
+- images/logo.png
+- images/skyline.png
+- uploads/building.jpg
+- top-level icons copied into images/: apple-touch-icon.png, siteicon.png, touch-icon.png
+
+Export locations inside this package (relative to `statamic_transfer`):
+- css/ -> CSS source (main.scss)
+- fonts/ -> font files
+- images/ -> site images and icons
+- uploads/ -> uploaded media
+
+Notes & suggested Statamic mapping:
+- Posts: create a Statamic collection `blog` and convert each markdown file in `_posts` to a collection entry. Use front-matter fields as entry fields; `_posts/_defaults.md` shows defaults.
+- Staff: create a Statamic collection `staff` and import files from `_staff_members` as entries. `_staff_members/_defaults.md` contains default front-matter.
+- Data: import YAML files from `_data` as Statamic globals or as site settings (resources/data).
+- Layouts/includes: these are Jekyll templates; recreate the relevant templates/partials in Statamic's Antlers templates. Files listed above show the main templates/partials to port.
+- Assets: copy the `css/`, `fonts/`, `images/`, and `uploads/` directories into your Statamic project's assets container (e.g. `public/assets` or an Assets container in Control Panel). Update template references accordingly.
+
+What was copied into `statamic_transfer`:
+- css/ (1 file: main.scss)
+- fonts/ (1 file: Raleway-VariableFont_wght.ttf)
+- images/ (4 files copied from images/ plus 3 top-level icons copied into images/ — total 7 image files)
+- uploads/ (1 file: building.jpg)
+
+Next steps I can help with:
+- Convert blog posts and staff markdown front-matter to Statamic entry files.
+- Create a skeleton Statamic structure (collections, asset containers) and place these files in the correct locations.
+
+End of description.
